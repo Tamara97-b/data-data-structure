@@ -18,7 +18,7 @@ add() Time : O(n). Space : O(n). contains() Time : O(n) in the worst case. Space
 Find the maximum value in a given tree.
 
 ## whiteboard :
-![cc16](../../data-data-structure/trees/images/cc16.PNG)
+![cc16](images/cc16.PNG)
 
 ## Approach & Efficiency :
 In add method I used for loop to find the max value .this is good approch to be used. Time : O(n). Space : O(1).
@@ -28,7 +28,7 @@ In add method I used for loop to find the max value .this is good approch to be 
 Write a function called breadth first Arguments: tree Return: list of all values in the tree, in the order they were encountered
 
 ## whiteboard :
-![cc17](../../data-data-structure/trees/images/cc17.PNG)
+![cc17](images/cc17.PNG)
 
 ## Approach & Efficiency :
 O(1) fot time and space
