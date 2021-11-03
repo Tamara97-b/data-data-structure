@@ -1,6 +1,4 @@
-package tree;
-
-import trees.Node;
+package trees;
 
 public class Queue<T> {
     Node<T> front;
@@ -25,6 +23,7 @@ public class Queue<T> {
             temp.next=null;
             return temp.value;
         } catch (NullPointerException e) {
+            System.out.print("Caught the NullPointerException");
             return null;
         }
     }
@@ -33,6 +32,7 @@ public class Queue<T> {
         try{
             return front.value;
         } catch (NullPointerException e) {
+            System.out.print("Caught the NullPointerException");
             return null;
         }
     }
@@ -58,3 +58,5 @@ public class Queue<T> {
 
     }
 }
+
+
