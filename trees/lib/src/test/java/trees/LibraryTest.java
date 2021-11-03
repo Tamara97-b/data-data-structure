@@ -110,6 +110,9 @@ class LibraryTest {
 
     }
 
+
+
+
     @Test void bredthFirstTest() {
 
         BinaryTree<Integer> newTree = new BinaryTree<>();
@@ -136,6 +139,30 @@ class LibraryTest {
 
 
     }
+
+    public static List treeFizzBuzz(Node<Integer> treeRoot) {
+        List<String> newList = new ArrayList<>();
+        if (treeRoot.value == null) return newList;
+        Queue testQueue = new Queue();
+        testQueue.enqueue(treeRoot);
+        while (!testQueue.isEmpty()) {
+            Node<Integer> focus = (Node<Integer>) testQueue.dequeue();
+            for (int i = 0; i < focus.child.size(); i++)
+                testQueue.enqueue(focus.child.get(i));
+            if (focus.value % 3 == 0 && focus.value % 5 == 0) {
+                newList.add("FizzBuzz");
+            } else if (focus.value % 3 == 0) {
+                newList.add("Fizz");
+            } else if (focus.value % 5 == 0) {
+                newList.add("Buzz");
+            } else {
+                newList.add("\"" + focus.value + "\"");
+            }
+        }
+        return newList;
+    }
+
+
 
 
 

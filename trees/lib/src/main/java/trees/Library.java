@@ -21,12 +21,14 @@ public class Library {
         Node<String> nodeF = new Node<>("F");
         Node<String> nodeC= new Node<>("C", nodeF, null);
         Node<String> newTreeRoot = new Node<>("A", nodeB, nodeC);
-        System.out.println(newTree.preOrder(newTreeRoot));
-        System.out.println(newTree.inOrder(newTreeRoot));
-        System.out.println(newTree.postOrder(newTreeRoot));
+        System.out.println("preOrder: "+newTree.preOrder(newTreeRoot));
+        System.out.println("inOrder: "+newTree.inOrder(newTreeRoot));
+        System.out.println("postOrder: "+newTree.postOrder(newTreeRoot));
         System.out.println(newTree.toString());
 
-        BinarySearch binarySearchTree = new BinarySearch();
+
+
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
 
         Node<Integer> searchNode0 = new Node<>(24);
         Node<Integer> searchNode1 = new Node<>(6);
@@ -48,8 +50,8 @@ public class Library {
         System.out.println( binarySearchTree.contains(7));
         System.out.println( binarySearchTree.contains(205));
         System.out.println( binarySearchTree.contains(-15));
-        System.out.println(binarySearchTree.contains(-1));
-        System.out.println(binarySearchTree.contains(23));
+        System.out.println( binarySearchTree.contains(-1));
+        System.out.println( binarySearchTree.contains(23));
 
 
         BinaryTree<Integer> newTree1 = new BinaryTree<>();
@@ -65,6 +67,15 @@ public class Library {
 
         System.out.println(newTree1.maximumValue());
         System.out.println(breadthFirst(newTree1));
+
+        Node<Integer> root = new Node<Integer>(0);
+        root.child.add(new Node(2));
+        root.child.add(new Node(3));
+        root.child.add(new Node(5));
+        root.child.get(0).child.add(new Node(12));
+        root.child.get(0).child.add(new Node(22));
+        root.child.get(0).child.add(new Node(15));
+        System.out.println(treeFizzBuzz(root));
     }
     public static  List<Integer> breadthFirst(BinaryTree<Integer> tree) {
         if (tree.root==null) {
@@ -72,7 +83,7 @@ public class Library {
         }
 
         List<Integer> response = new ArrayList<>();
-        tree.Queue<Node<Integer>> queue = new tree.Queue();
+        Queue<Node<Integer>> queue = new Queue<>();
         queue.enqueue(tree.root);
 
         while (!queue.isEmpty()) {
@@ -86,6 +97,29 @@ public class Library {
             }
         }
         return response;
+    }
+
+
+    public static List treeFizzBuzz(Node<Integer> treeRoot) {
+        List<String> newList = new ArrayList<>();
+        if (treeRoot.value == null) return newList;
+        Queue testQueue = new Queue();
+        testQueue.enqueue(treeRoot);
+        while (!testQueue.isEmpty()) {
+            Node<Integer> focus = (Node<Integer>) testQueue.dequeue();
+            for (int i = 0; i < focus.child.size(); i++)
+                testQueue.enqueue(focus.child.get(i));
+            if (focus.value % 3 == 0 && focus.value % 5 == 0) {
+                newList.add("FizzBuzz");
+            } else if (focus.value % 3 == 0) {
+                newList.add("Fizz");
+            } else if (focus.value % 5 == 0) {
+                newList.add("Buzz");
+            } else {
+                newList.add("\"" + focus.value + "\"");
+            }
+        }
+        return newList;
     }
 
 }
