@@ -9,6 +9,7 @@ public class Library {
     public static void main(String[] args) {
         int[]arr={8,4,23,42,16,15};
         System.out.println(Arrays.toString(insertionSort(arr)));
+
     }
 
     public static int[] insertionSort(int[]arr){
@@ -23,6 +24,10 @@ public class Library {
             }
             arr[j+1] = temp;
         }
+
         return arr;
+
     }
+
+
 }
