@@ -10,7 +10,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-
+    MergeSort mergeSort = new MergeSort();
         @Test
         public void insertionSortTest() {
             Library classUnderTest = new Library();
@@ -21,4 +21,29 @@ class LibraryTest {
 
 
         }
+    @Test
+    public void ReverseSorted(){
+        int[] array = {5,12,7,5,5,7};
+        int n=array.length;
+        int[] outputArray = mergeSort.merge(array,0,n-1);
+        int[] expectedOutput = {5,5,5,7,7,12};
+        assertArrayEquals(expectedOutput,outputArray);
+    }
+
+    @Test
+    public void FewUniquesTest(){
+        int[] array = {20,18,12,8,5,-2};
+        int n=array.length;
+        int[] outputArray = mergeSort.merge(array,0,n-1);
+        int[] expectedOutput = {-2,5,8,12,18,20};
+        assertArrayEquals(expectedOutput,outputArray);
+    }
+    @Test
+    public void NearlySortedTest(){
+        int[] array = {2,3,5,7,13,11};
+        int n=array.length;
+        int[] outputArray = mergeSort.merge(array,0,n-1);
+        int[] expectedOutput = {2,3,5,7,11,13};
+        assertArrayEquals(expectedOutput,outputArray);
+    }
 }
