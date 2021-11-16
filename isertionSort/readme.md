@@ -20,3 +20,15 @@ write  function called merge sort to sort an array by merge sort algorathem
 # Approach & Efficiency
 time : O(n long n)
 space : O(1)
+
+# code challenge 28
+
+# Description
+write  function called quick sort to sort an array by quick sort algorathem
+
+# whiteboard
+![merge sort](Images/cc28.PNG)
+
+# Approach & Efficiency
+time : O(n^2)
+space : O(1)
