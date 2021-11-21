@@ -1,11 +1,11 @@
 package hashtable;
 
 public class Entry<T> {
-    int key;
+    String key;
     T value;
     Entry next;
 
-    public Entry(int key, T value) {
+    public Entry(String  key, T value) {
         this.key = key;
         this.value = value;
        next = null;
@@ -13,7 +13,7 @@ public class Entry<T> {
     public Entry(){
         next=null;
     }
-    public int getKey(){
+    public String getKey(){
         return key;
     }
 

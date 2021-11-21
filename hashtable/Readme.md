@@ -36,3 +36,18 @@ get(T key) : return the value from the table based on inserted key.
 contains(T key) :takes key as an Arguments and Returns Boolean, indicating if the key exists in the table already.
 
 hash :takes key as an Arguments key and Returns Index in the collection for that key.
+
+## code challenge 31
+
+### description 
+Writing a function called repeated word that finds the first word to occur more than once in a string.
+
+### whiteboard
+
+![image](img/cc31.PNG)
+
+### approch and effeciancy
+
+Time : Big O(n)
+
+Space : Big O(n)

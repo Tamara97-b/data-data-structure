@@ -10,17 +10,20 @@ class LibraryTest {
    @Test
     public void addTest(){
        HashTable hashTest = new HashTable(5);
-       hashTest.add(2,"tamara");
-       hashTest.add(1,"jood");
-       hashTest.add(1,"lama");
-       assertEquals("tamara",hashTest.get(2));
-       assertNull(hashTest.get(3));
-       assertEquals(hashTest.contain(4),false);
-       assertEquals(hashTest.get(1),"lama");
+       hashTest.add("2","tamara");
+       hashTest.add("1","jood");
+       hashTest.add("1","lama");
+       assertEquals("tamara",hashTest.get("2"));
+       assertNull(hashTest.get("3"));
+       assertEquals(hashTest.contain("4"),false);
+       assertEquals(hashTest.get("1"),"lama");
+     
+
+   }
 
 
-
-
-
+   @Test void firstRepeatedWord() throws Exception{
+      HashTable hashMap= new HashTable(7);
+      assertEquals("it", hashMap.repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only"));
    }
 }
