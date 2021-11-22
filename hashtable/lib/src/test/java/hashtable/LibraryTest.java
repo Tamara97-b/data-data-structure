@@ -4,26 +4,68 @@
 package hashtable;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
    @Test
-    public void addTest(){
-       HashTable hashTest = new HashTable(5);
-       hashTest.add("2","tamara");
-       hashTest.add("1","jood");
-       hashTest.add("1","lama");
-       assertEquals("tamara",hashTest.get("2"));
-       assertNull(hashTest.get("3"));
-       assertEquals(hashTest.contain("4"),false);
-       assertEquals(hashTest.get("1"),"lama");
-     
+   public void addTest() {
+      HashTable hashTest = new HashTable(5);
+      hashTest.add("2", "tamara");
+      hashTest.add("1", "jood");
+      hashTest.add("1", "lama");
+      assertEquals("tamara", hashTest.get("2"));
+      assertNull(hashTest.get("3"));
+      assertEquals(hashTest.contain("4"), false);
+      assertEquals(hashTest.get("1"), "lama");
+
 
    }
 
 
-   @Test void firstRepeatedWord() throws Exception{
-      HashTable hashMap= new HashTable(7);
+   @Test
+   void firstRepeatedWord() throws Exception {
+      HashTable hashMap = new HashTable(7);
       assertEquals("it", hashMap.repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only"));
+   }
+
+
+   @Test
+   void testTreeIntersection() {
+
+      BinaryTree<Integer> tree1 = new BinaryTree<>();
+      BinaryTree<Integer> tree2 = new BinaryTree<>();
+
+      assertNull(Library.treeIntersection(tree1, tree2));
+
+      tree1.root = new Node<>(5);
+      assertNull(Library.treeIntersection(tree1, tree2));
+
+      tree1 = new BinaryTree<>();
+      tree2 = new BinaryTree<>();
+      Node<Integer> item6 = new Node<>(30);
+      Node<Integer> item5 = new Node<>(27);
+      Node<Integer> item4 = new Node<>(2);
+      Node<Integer> item3 = new Node<>(11, item6, null);
+      Node<Integer> item2 = new Node<>(15, item5, null);
+      Node<Integer> item1 = new Node<>(3, item3, item4);
+      Node<Integer> root1 = new Node<>(20, item1, item2);
+      tree1.root = root1;
+
+      Node<Integer> item12 = new Node<>(31);
+      Node<Integer> item11 = new Node<>(29);
+      Node<Integer> item10 = new Node<>(1);
+      Node<Integer> item9 = new Node<>(10, item12, null);
+      Node<Integer> item8 = new Node<>(16, item11, null);
+      Node<Integer> item7 = new Node<>(4, item9, item10);
+      Node<Integer> root2 = new Node<>(19, item7, item8);
+      tree2.root = root2;
+
+      ArrayList<Integer> test = Library.treeIntersection(tree1, tree2);
+      ArrayList<Integer> expected = new ArrayList<>();
+      assertEquals(expected, test);
+
    }
 }

@@ -51,3 +51,22 @@ Writing a function called repeated word that finds the first word to occur more 
 Time : Big O(n)
 
 Space : Big O(n)
+
+
+## code challenge 32
+
+### description 
+Write a function called tree_intersection that takes two binary trees as parameters.
+Using your Hashmap implementation as a part of your algorithm, return a set of values found in both trees.
+
+
+### whiteboard
+
+![image](img/32.PNG)
+
+
+### approch and effeciancy
+
+Time : Big O(n)
+
+Space : Big O(n)
