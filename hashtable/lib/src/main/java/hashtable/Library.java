@@ -3,6 +3,9 @@
  */
 package hashtable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Library {
     public static void main(String[] args) throws Exception {
         System.out.println("hellooooooooo");
@@ -12,6 +15,46 @@ public class Library {
          hashTable.add("3","jood");
         System.out.println(hashTable.get("3"));
         System.out.println(hashTable.contain("7"));
+
+
+        BinaryTree<Integer> binaryTreeOne = new BinaryTree<>(new Node<>(7));
+        Node<Integer> node1 = new Node<>(20);
+        Node<Integer> node2 = new Node<>(12);
+        Node<Integer> node3 = new Node<>(5, node1, node2);
+        Node<Integer> node5 = new Node<>(16);
+        Node<Integer> node4 = new Node<>(3, node5, null);
+        binaryTreeOne.root.rightChild = node4;
+        binaryTreeOne.root.leftChild = node3;
+
+
+        BinaryTree<Integer> binaryTreeTwo = new BinaryTree<>(new Node<>(47));
+        Node<Integer> node6 = new Node<>(5);
+        Node<Integer> node7 = new Node<>(16);
+        Node<Integer> node8 = new Node<>(7, node6, node7);
+        Node<Integer> node9 = new Node<>(58);
+        Node<Integer> node10 = new Node<>(3, node9, null);
+        binaryTreeTwo.root.rightChild = node10;
+        binaryTreeTwo.root.leftChild = node8;
+
+        System.out.println(treeIntersection(binaryTreeOne, binaryTreeTwo));
+
+    }
+
+    public static <V> ArrayList<V> treeIntersection(BinaryTree<V> tree1, BinaryTree<V> tree2) {
+        ArrayList<V> response = new ArrayList<>();
+        if (tree1.root==null || tree2.root==null) {
+            return null;
+        } else {
+            List<V> inTree1 = tree1.preOrder(tree1.root);
+            System.out.println(inTree1);
+            List<V> inTree2 = tree2.preOrder(tree2.root);
+            for (V val : inTree1) {
+                if (inTree2.contains(val)) {
+                    response.add(val);
+                }
+            }
+            return response;
+        }
 
     }
 }
