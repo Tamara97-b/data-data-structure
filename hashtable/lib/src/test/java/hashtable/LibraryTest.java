@@ -6,6 +6,7 @@ package hashtable;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,6 +67,32 @@ class LibraryTest {
       ArrayList<Integer> test = Library.treeIntersection(tree1, tree2);
       ArrayList<Integer> expected = new ArrayList<>();
       assertEquals(expected, test);
+
+   }
+
+
+   @Test
+   public void LeftJoinTest() {
+
+      //test when both hash maps are empty
+      HashMap<String, String> ht1 = new HashMap<>();
+      HashMap<String, String> ht2 = new HashMap<>();
+
+      assertEquals("[]", Library.leftJoin(ht1, ht2).toString());
+
+
+      //test for one empty Hashmap
+      HashMap<String, String> ht3 = new HashMap<>();
+      ht3.put("fond", "enamored");
+      ht3.put("wrath", "anger");
+      ht3.put("diligent", "employed");
+      ht3.put("outfit", "garb");
+      ht3.put("guide", "usher");
+
+      HashMap<String, String> ht4 = new HashMap<>();
+
+      assertEquals("[[diligent, employed, null], [outfit, garb, null], [wrath, anger, null], [guide, usher," +
+              " null], [fond, enamored, null]]", Library.leftJoin(ht3, ht4).toString());
 
    }
 }
