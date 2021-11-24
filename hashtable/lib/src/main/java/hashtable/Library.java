@@ -4,7 +4,9 @@
 package hashtable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class Library {
     public static void main(String[] args) throws Exception {
@@ -38,6 +40,21 @@ public class Library {
 
         System.out.println(treeIntersection(binaryTreeOne, binaryTreeTwo));
 
+
+
+        HashMap<String, String> one= new HashMap<>();
+        one.put("fond", "enamored");
+        one.put("wrath", "anger");
+        one.put("diligent", "employed");
+        one.put("outfit", "garb");
+        one.put("guide", "usher");
+
+        HashMap<String, String> two = new HashMap<>();
+        two.put("fond", "averse");
+        two.put("something", "delight");
+
+        System.out.println(leftJoin(one,two));
+
     }
 
     public static <V> ArrayList<V> treeIntersection(BinaryTree<V> tree1, BinaryTree<V> tree2) {
@@ -57,4 +74,27 @@ public class Library {
         }
 
     }
+
+    public static ArrayList<ArrayList<String>> leftJoin(HashMap ht1, HashMap ht2) {
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
+
+        Set ht1KeySet  = ht1.keySet();
+        for (Object key : ht1KeySet) {
+            ArrayList<String> strings = new ArrayList<>();
+
+            strings.add(String.valueOf(key));
+            strings.add(String.valueOf(ht1.get(key)));
+
+            if (ht2.containsKey(key)) {
+                strings.add(String.valueOf(ht2.get(key)));
+            } else {
+                strings.add(null);
+            }
+
+            result.add(strings);
+        }
+
+        return result;
+    }
+
 }
