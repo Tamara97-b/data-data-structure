@@ -71,7 +71,7 @@ Time : Big O(n)
 
 Space : Big O(n)
 
-## code challenge 32
+## code challenge 33
 Write a function that LEFT JOINs two hashmaps into a single data structure.
 Write a function called left join
 Arguments: two hash maps
