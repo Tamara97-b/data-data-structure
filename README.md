@@ -6,3 +6,4 @@
 |Merge sort| [Merge sort](./isertionSort/MergeSort.md)|
 |Quick sort| [Quick sort](./isertionSort/quickSortReadme.md)|
 |Hasah table| [Hasah table](./hashtable/Readme.md)|
+|Graph      | [graph](./graph/readme.md)|
