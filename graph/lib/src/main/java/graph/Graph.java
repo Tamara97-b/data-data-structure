@@ -3,30 +3,43 @@ package graph;
 
 import java.util.*;
 
-public class Graph<T, W> {
+public class Graph <T>{
 
-    private HashMap<T, LinkedList<Vertex<T, W>>> nodes;
-    private long size;
+    Map<Vertex <T>, ArrayList<Vertex<T>>> map = new HashMap<>();
 
-    public Graph() {
-        nodes = new HashMap<>();
+
+    public Vertex<T> addNode(T value ){
+
+        Vertex vertex = new Vertex( value);
+        map.put(vertex,new ArrayList<>());
+        return vertex;
+
     }
 
-    public long getSize() {
-        return size;
+    public void addEdge(Vertex nodeOne , Vertex nodeTwo){
+        map.get(nodeOne).add(nodeTwo);
+        map.get(nodeTwo).add(nodeOne);
     }
 
-    public T addNode(T value) {
-        nodes.put(value, new LinkedList<>());
-        size++;
-        return value;
-    }
 
-    public void addEdge(T firstNode, T secondValue) {
-        if (!nodes.containsValue(firstNode) || !nodes.containsValue(secondValue)) {
-            return;
+    public ArrayList<Vertex> getNodes(){
+
+        if (map.isEmpty()){
+            return null;
         }
 
+        ArrayList<Vertex> list = new ArrayList<>();
+        list.addAll(map.keySet());
+        return list;
 
     }
+
+    public  ArrayList<Vertex<T>> getNeighbors(Vertex node){
+        return map.get(node);
+    }
+
+    public int getSize(){
+        return map.size();
+    }
+
 }

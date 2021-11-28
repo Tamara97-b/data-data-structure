@@ -4,11 +4,43 @@
 package graph;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
-    }
+
+        @Test void appHasAGreeting() {
+            Library classUnderTest = new Library();
+            assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+
+            Graph<String> test = new Graph<>();
+            Vertex<String> vertex = test.addNode("A");
+            assertTrue(test.map.containsKey(vertex));
+
+
+            Vertex<String> vertexTwo = test.addNode("B");
+            test.addEdge(vertex,vertexTwo);
+            assertEquals(vertexTwo , test.getNeighbors(vertex).get(0));
+            
+
+            List<Vertex<String>> resultTwo = new ArrayList<>();
+            resultTwo.add(vertexTwo);
+            assertEquals(resultTwo , test.getNeighbors(vertex));
+
+            assertEquals(2,test.getSize());
+
+            Graph<String> oneNodeGraph = new Graph<>();
+            Vertex<String> vertexThree = oneNodeGraph.addNode("A");
+
+            ArrayList<Vertex<String>> resultThree = new ArrayList<>();
+            resultThree.add(vertexThree);
+            assertEquals(resultThree, oneNodeGraph.getNodes());
+
+            Graph<String> emptyGraph = new Graph<>();
+            assertNull(emptyGraph.getNodes());
+        }
 }
