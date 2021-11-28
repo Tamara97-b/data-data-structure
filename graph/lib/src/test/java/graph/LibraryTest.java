@@ -25,7 +25,7 @@ class LibraryTest {
             Vertex<String> vertexTwo = test.addNode("B");
             test.addEdge(vertex,vertexTwo);
             assertEquals(vertexTwo , test.getNeighbors(vertex).get(0));
-            
+
 
             List<Vertex<String>> resultTwo = new ArrayList<>();
             resultTwo.add(vertexTwo);
