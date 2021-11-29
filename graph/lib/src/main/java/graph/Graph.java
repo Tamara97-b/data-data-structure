@@ -1,6 +1,8 @@
 package graph;
 
 
+import org.w3c.dom.Node;
+
 import java.util.*;
 
 public class Graph <T>{
@@ -41,5 +43,28 @@ public class Graph <T>{
     public int getSize(){
         return map.size();
     }
+
+    public List<Vertex> breadthFirst(Vertex startVertex) {
+        Queue<Vertex> queue = new LinkedList<>();
+        List<Vertex> visited = new ArrayList<>();
+
+        queue.add(startVertex);
+        visited.add(startVertex);
+
+        while (!queue.isEmpty()) {
+            Vertex current = queue.remove();
+
+            for (Vertex result : getNeighbors(current) ) {
+                if (!visited.contains(result)) {
+                    queue.add(result);
+                    visited.add(result);
+                    System.out.println(result);
+                }
+            }
+        }
+        return visited;
+    }
+
+
 
 }
