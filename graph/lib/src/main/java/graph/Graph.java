@@ -84,4 +84,28 @@ public class Graph <T>{
     }
 
 
+
+
+    public Set<String> depthFirst(String root) {
+        if (map.isEmpty()) {
+            return null;
+        }
+        Set<String> visited = new LinkedHashSet<>();
+        Stack<String> stack = new Stack<>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            String vertex = stack.pop();
+            if (!visited.contains(vertex)) {
+                visited.add(vertex);
+
+                for (Vertex v : getNeighbors(vertex)) {
+                    stack.push(root);
+                }
+            }
+        }
+
+        return visited;
+    }
+
 }

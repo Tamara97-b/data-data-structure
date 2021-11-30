@@ -71,6 +71,18 @@ class LibraryTest {
             assertEquals("Narnia",breadthFirst.get(4).value);
             assertEquals("Naboo",breadthFirst.get(5).value);
         }
+//    @Test
+//    public void depthFirstOneVertex(){
+//
+//        Graph graph = new Graph();
+//
+//        graph.addNode("A");
+//
+//        assertEquals("[A]", graph.depthFirst("A").toString());
+//    }
 
-        }
+
+    }
+
+
 
