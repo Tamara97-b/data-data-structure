@@ -73,3 +73,22 @@ Time :BigO(n)
 Space : BigO(1) 
 
 
+## cc38
+Write the following method for the Graph class:
+
+Name: Depth first
+Arguments: Node (Starting point of search)
+Return: A collection of nodes in their pre-order depth-first traversal order
+Program output: Display the collection
+
+
+### Whiteboard Process
+
+![image](img/final.PNG)
+Graph Depth First
+
+Approach & Efficiency
+
+Time: O(n^2)
+Space: O(n)
+
