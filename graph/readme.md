@@ -52,5 +52,24 @@ Time :BigO(n^2)
 
 Space : BigO(n) 
 
+## cc37
+
+### descriotion
+
+Write a function called business trip
+Arguments: graph, array of city names
+Return: cost or null
+Determine whether the trip is possible with direct flights, and how much it would cost.
+
+### white board
+
+![img](img/cc37.PNG)
+
+### Approach & Efficiency
+big O(n)
+
+Time :BigO(n)
+
+Space : BigO(1) 
 
 
